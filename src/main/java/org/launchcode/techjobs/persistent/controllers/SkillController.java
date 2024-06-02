@@ -18,7 +18,7 @@ public class SkillController {
 	@Autowired
 	private SkillRepository skillRepository;
 
-	@GetMapping
+	@GetMapping(value = "/") // tests & routing require (value="/")
 	public String index(Model model) {
 		model.addAttribute("skills", skillRepository.findAll());
 		return "skills/index";
