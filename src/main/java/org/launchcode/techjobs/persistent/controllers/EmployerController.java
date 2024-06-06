@@ -62,8 +62,7 @@ public class EmployerController {
         Optional<Employer> optEmployer = employerRepository.findById(employerId);
 
         if (optEmployer.isPresent()) {
-            Employer dbEmployer = optEmployer.get(); // returns Object type value
-            model.addAttribute("employer", dbEmployer);
+            model.addAttribute("employer", optEmployer.get());
             return "employers/view";
         }
         return "redirect:../";
