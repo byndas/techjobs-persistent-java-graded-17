@@ -1,8 +1,6 @@
 package org.launchcode.techjobs.persistent.models;
 
-
 import jakarta.persistence.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,9 +15,8 @@ public class Job extends AbstractEntity {
 
     public Job() {}
 
-    // initializes id & value fields
     public Job(Employer anEmployer, List<Skill> someSkills) {
-        super();
+        super(); // initializes id & value fields
         this.employer = anEmployer;
         this.skills = someSkills;
     }

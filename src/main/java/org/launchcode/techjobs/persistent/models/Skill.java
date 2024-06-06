@@ -1,9 +1,7 @@
 package org.launchcode.techjobs.persistent.models;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
-import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 
@@ -13,7 +11,7 @@ import java.util.List;
 @Entity
 public class Skill extends AbstractEntity {
 
-	@NotEmpty
+	@NotEmpty(message="skill description must not be empty")
 	@Size(max=100)
 	private String description;
 

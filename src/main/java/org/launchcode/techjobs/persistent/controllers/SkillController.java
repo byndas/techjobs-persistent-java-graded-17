@@ -18,7 +18,7 @@ public class SkillController {
 	@Autowired
 	private SkillRepository skillRepository;
 
-	@GetMapping(value = "/") // tests & routing require (value="/")
+	@GetMapping(value="/") // tests & routing require (value="/")
 	public String index(Model model) {
 		model.addAttribute("skills", skillRepository.findAll());
 		return "skills/index";
@@ -49,8 +49,8 @@ public class SkillController {
 		Optional optSkill = skillRepository.findById(skillId);
 
 		if (optSkill.isPresent()) {
-			Skill skill = (Skill) optSkill.get();
-			model.addAttribute("skill", skill);
+//			Skill skill = (Skill) optSkill.get();
+			model.addAttribute("skill", optSkill.get());
 			return "skills/view";
 		}
 		return "redirect:../";

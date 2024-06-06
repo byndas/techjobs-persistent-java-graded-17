@@ -19,9 +19,12 @@ public class Employer extends AbstractEntity {
 	@Size(max=50)
 	private String location;
 
-	@OneToMany
-	@JoinColumn(name="employer_id")
-	private List<Job> jobs = new ArrayList<>();
+	@OneToMany // relates one Employer to many Job class object instances
+	@JoinColumn(name="employer_id") // foreign key for jobs
+	private List<Job> jobs = new ArrayList<>(); // list of Job class object instances
+//	Spring Boot knows that Employer.id is "employer_id"
+//	  because every AbstractEntity has an "id" field
+//	    therefore @JoinColumn must use more specific name than "id"
 
 	public Employer() {}
 
