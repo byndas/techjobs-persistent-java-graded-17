@@ -59,9 +59,12 @@ public class EmployerController {
 //      CrudRepository method --> findById()
 //      custom method call example: employerRepository.findByLocation("USA");
 
+        // employer db row info via its id column value
         Optional<Employer> optEmployer = employerRepository.findById(employerId);
 
-        if (optEmployer.isPresent()) {
+        if (optEmployer.isPresent()) { // .isPresent() comes from Optional type
+//          html cannot read Optional type --> optEmployer.get() returns Object type
+//          passing in Object type to display employer id db row
             model.addAttribute("employer", optEmployer.get());
             return "employers/view";
         }
